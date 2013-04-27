@@ -124,11 +124,12 @@ a {
     float: right;
     font-size: 15px;
     padding: 10px;
-    position: absolute;
+    position: fixed;
     right: 10px;
     top: 0px;
     text-align: center;
     width: 120px;
+    z-index: 500;
 }
 
 .debug-layout #reset {
