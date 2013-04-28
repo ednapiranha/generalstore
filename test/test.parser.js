@@ -18,6 +18,7 @@ describe('Parser', function () {
         stories[0].level.should.equal(1);
         stories[0].location.should.equal('Some Dark Alley Valid');
         stories[0].background_image.should.equal('alley.jpg');
+        stories[0].audio.should.equal('test.ogg');
         stories[0].description.should.equal('Welcome to the land of fluffy clouds and happiness.');
         should.exist(stories[0].characters['1-bear']);
         should.exist(stories[0].characters['1-dog']);

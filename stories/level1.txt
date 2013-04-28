@@ -1,0 +1,44 @@
+level
+1
+
+location
+Sleepy Town
+
+audio
+false
+
+background_image
+town.jpg
+
+description
+Welcome to Sleepy Town. Population: 11,050. You have been called in by Sheriff Wino to investigate the death of the town cat.
+
+item
+name: tree1
+image: tree1.png
+left: 100
+top: 400
+requires: false
+gives: false
+audio: false
+levels_up_to: false
+
+item
+name: motel
+image: motel.png
+left: 650
+top: 310
+requires: keys
+gives: false
+audio: false
+levels_up_to: false
+
+item
+name: esign
+image: e-sign.gif
+left: 814
+top: 375
+requires: cat
+gives: keys
+audio: hum.wav
+levels_up_to: false

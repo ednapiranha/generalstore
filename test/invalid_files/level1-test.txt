@@ -7,6 +7,9 @@ Some Dark Alley Invalid
 background_image
 alley.jpg
 
+audio
+test.ogg
+
 description
 Welcome to the land of fluffy clouds and happiness.
 
@@ -18,4 +21,5 @@ left: 500
 top: 400
 requires: keys
 gives: false
+audio: false
 levels_up_to: 2

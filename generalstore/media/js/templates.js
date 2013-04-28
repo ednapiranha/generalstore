@@ -64,7 +64,13 @@ output += "px; height: ";
 output += runtime.suppressValue(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "data")),"defaults", env.autoesc)),"height", env.autoesc), env.autoesc);
 output += "px;\n            background-image: url(media/images/backgrounds/";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "data")),"backgroundImage", env.autoesc), env.autoesc);
-output += ");\">\n  <div class=\"game-content\">\n    <a href=\"javascript:;\" id=\"inventory\" data-action=\"inventory-show\">\n      <span>inventory</span>\n    </a>\n    ";
+output += ");\">\n  ";
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "data")),"audio", env.autoesc)) {
+output += "\n    <audio id=\"audio-replay\" src=\"media/audio/backgrounds/";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "data")),"audio", env.autoesc), env.autoesc);
+output += "\" autoplay loop></audio>\n  ";
+}
+output += "\n  <div class=\"game-content\">\n    <a href=\"javascript:;\" id=\"inventory\" data-action=\"inventory-show\">\n      <span>inventory</span>\n    </a>\n    ";
 if(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "data")),"defaults", env.autoesc)),"showDescription", env.autoesc) && runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "data")),"description", env.autoesc)),"length", env.autoesc) > 0) {
 output += "\n      <div class=\"description\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "data")),"description", env.autoesc), env.autoesc);
@@ -151,7 +157,7 @@ output += "px;\">\n    ";
 output += "\n    <div id=\"message\"></div>\n    <div id=\"inventory-screen\" class=\"hidden\">\n      <h2>inventory</h2>\n      <a href=\"javascript:;\" data-action=\"inventory-hide\" class=\"close\">close</a>\n      <ul id=\"inventory-items\">\n        ";
 var includeTemplate = env.getTemplate("inventory.html");
 output += includeTemplate.render(context.getVariables(), frame.push());
-output += "\n      </ul>\n    </div>\n    <div id=\"inventory-notify\" class=\"hidden\" data-action=\"inventory-notify\">\n      <p data-action=\"inventory-notify\">New inventory!</p>\n      <img src=\"\" data-action=\"inventory-notify\">\n    </div>\n  </div>\n</div>\n";
+output += "\n      </ul>\n    </div>\n    <div id=\"inventory-notify\" class=\"hidden\" data-action=\"inventory-notify\">\n      <p data-action=\"inventory-notify\">New inventory!</p>\n      <img src=\"\" data-action=\"inventory-notify\">\n    </div>\n    <audio id=\"audio-noreplay\"></audio>\n  </div>\n</div>\n";
 return output;
 } catch (e) {
   runtime.handleError(e, lineno, colno);
