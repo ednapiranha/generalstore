@@ -16,7 +16,6 @@ audio {
 
 .game-wrapper {
     background-repeat: no-repeat;
-    border: 2px solid transparent;
     border-radius: 10px;
     margin-top: 40px;
     overflow: hidden;
@@ -28,8 +27,12 @@ audio {
     border: 2px solid transparent;
 }
 
-.debugger .description, .debugger .game-wrapper,
-.debugger .character, .debugger #message, .debugger .item {
+.debugger .game-wrapper {
+    background-color: #fff;
+}
+
+.debugger .description, .debugger .character,
+.debugger #message, .debugger .item {
     border: 2px solid #1af7ff;
 }
 
