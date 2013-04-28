@@ -1,6 +1,9 @@
 <div class="game-wrapper level-{{ data.level }}"
      style="width: {{ data.defaults.width }}px; height: {{ data.defaults.height }}px;
             background-image: url(media/images/backgrounds/{{ data.backgroundImage }});">
+  {% if data.audio %}
+    <audio id="audio-replay" src="media/audio/backgrounds/{{ data.audio }}" autoplay loop></audio>
+  {% endif %}
   <div class="game-content">
     <a href="javascript:;" id="inventory" data-action="inventory-show">
       <span>inventory</span>
@@ -30,5 +33,6 @@
       <p data-action="inventory-notify">New inventory!</p>
       <img src="" data-action="inventory-notify">
     </div>
+    <audio id="audio-noreplay"></audio>
   </div>
 </div>

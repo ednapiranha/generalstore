@@ -7,6 +7,9 @@ Some Dark Alley Valid
 background_image
 alley.jpg
 
+audio
+test.ogg
+
 description
 Welcome to the land of fluffy clouds and happiness.
 
@@ -18,6 +21,7 @@ requires: false
 first_says: Hey how are you doing!
 finally_says: ...
 gives: cat
+audio: false
 
 character
 name: dog
@@ -27,6 +31,7 @@ requires: cat
 first_says: I like cats! Thanks for this cat!
 finally_says: boop.
 gives: keys
+audio: false
 
 item
 name: car
@@ -34,4 +39,5 @@ left: 500
 top: 400
 requires: keys
 gives: false
+audio: false
 levels_up_to: 2

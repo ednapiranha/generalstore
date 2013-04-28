@@ -42,6 +42,7 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
       // Load initial screen
       utils.loadTemplate('level.html', {
         level: currLevel.level,
+        audio: currLevel.audio,
         backgroundImage: currLevel.background_image,
         description: currLevel.description,
         location: currLevel.location,
@@ -71,6 +72,7 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
 
   body.on('click', function (ev) {
     var img = body.find('#inventory-notify img');
+    var audio = body.find('#audio-noreplay');
     var self = $(ev.target);
     var requirement;
     var inventory;
@@ -95,9 +97,15 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
         character.active(self[0].id);
         requirement = character.current.requires;
         inventory = character.current.gives;
+        var charAudio = character.current.audio;
 
         if (!requirement || (requirement && (user.hasInventory(requirement) ||
           user.hasCollection(requirement)))) {
+
+          if (charAudio) {
+            audio.attr('src', 'media/audio/characters/' + charAudio)
+                 .trigger('play');
+          }
 
           if (inventory && !user.hasInteracted(currLevel.level, character)) {
             img.attr('src', 'media/images/inventory/' + inventory + '.png');
@@ -125,13 +133,18 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
         item.active(self[0].id);
         requirement = item.current.requires;
         inventory = item.current.gives;
+        var itemAudio = item.current.audio;
 
-        if (item.current.levels_up_to > 1 &&
-          (!requirement || (requirement && user.hasInventory(requirement)))) {
+        if (!requirement || (requirement && user.hasInventory(requirement))) {
+          if (itemAudio) {
+            audio.attr('src', 'media/audio/items/' + itemAudio);
+            audio.get(0).play();
+          }
+
           item.setLevel(item.current.levels_up_to, user);
         }
 
-        if (inventory) {
+        if (inventory && !user.hasInventory(inventory)) {
           item.setInventory(inventory, user);
           img = body.find('#inventory-notify img');
           img.attr('src', 'media/images/inventory/' + inventory + '.png');
@@ -142,6 +155,7 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
           currLevel = user.level;
           setLevel();
         }
+
         break;
 
       case 'inventory-show':

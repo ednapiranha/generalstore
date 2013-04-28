@@ -28,6 +28,27 @@ For users who want to create games do the following:
    > npm install
 
 
+## Writing stories
+
+### Setting up game dimensions
+
+> cd generalstore/config
+
+Edit the `width` and `height` values in defaults.json.
+
+If you don't want level descriptions to display in the game, set `showDescription` to false.
+
+
+### Create a sample level file
+
+> cp stories/level1.txt-sample stories/level1.txt
+
+
+### Generating files
+
+Once you've completed your txt files, run [http://localhost:3000/generate](http://localhost:3000/generate) in your browser to regenerate the configuration.
+
+
 ### Running in development
 
 To run the app in development, do:
