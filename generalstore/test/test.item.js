@@ -1,5 +1,5 @@
-define(['../media/js/base/item', '../media/js/base/user'],
-  function (Item, User) {
+define(['../media/js/base/item', '../media/js/base/user', 'fixtures'],
+  function (Item, User, fixtures) {
   'use strict';
 
   var options = {
@@ -8,6 +8,10 @@ define(['../media/js/base/item', '../media/js/base/user'],
 
   var user = new User(options);
   var item = new Item();
+  var json = fixtures;
+
+  item.all = json.items;
+  item.active('1-car');
 
   describe('Item', function () {
     afterEach(function () {

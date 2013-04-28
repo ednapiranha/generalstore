@@ -129,6 +129,7 @@ define([],
     this.inventory = defaults.inventory;
     this.collection = defaults.collection;
     this.interacted = defaults.interacted;
+    this.save();
   };
 
   return User;
