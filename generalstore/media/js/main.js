@@ -151,8 +151,8 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
 
           user.giveRequirement(currLevel, item);
 
-          if (item.current.levels_up_to > 1 && user.level !== currLevel) {
-            currLevel = user.level;
+          if (item.current.levels_up_to) {
+            currLevel = item.current.levels_up_to;
             setLevel();
           }
         }
