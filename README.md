@@ -59,6 +59,9 @@ Edit stories in a text editor with the following format:
     background_image
     partyhut.jpg
 
+    audio
+    meow.ogg
+
     description
     This is the party hut!
 
@@ -71,6 +74,7 @@ Edit stories in a text editor with the following format:
     gives: mango
     first_says: Hey there, here is a mango!
     finally_says: I already gave you a mango!
+    audio: false
 
     item
     name: car
@@ -79,6 +83,7 @@ Edit stories in a text editor with the following format:
     top: 400
     requires: mango
     gives: gas
+    audio: beep.wav
     levels_up_to: 2
 
 All character and item level and name properties are used to generate a unique id. E.g. A level 1 character with the name 'bunny' generates a unique id of 1-bunny.
@@ -88,6 +93,7 @@ Every story file starts with:
 * level - The level that this file represents. You can only have one unique level per file.
 * location - The location name of the level
 * background_image - The image used in the level's main background. If this is a png or gif, replace the extension.
+* audio - An optional looping audio sample that plays once the level is loaded; write 'false' if you don't want any audio.
 * description - An optional description of the location; write 'false' as the content if you want it to be empty. You can also configure generalstore/config/defaults.json to never show descriptions.
 
 Story files can contain zero or more characters and items.
@@ -104,6 +110,7 @@ Contains the properties for each character. All properties are mandatory.
 * gives - This is what the character gives to the player after initial interaction. If nothing needs to be given, write 'false'.
 * first_says - This is what the character first says to the player on initial interaction.
 * finally_says - This is what the character says on subsequent interactions.
+* audio - An optional per-click play of an audio sample; write 'false' if you don't want any audio.
 
 **item**
 
@@ -115,6 +122,7 @@ Contains the properties for each item. All properties are mandatory.
 * top - Position of the item from the top.
 * requires - If an inventory object is needed to trigger an item's response (especially if there is a `gives` or `levels_up_to` set), enter it here. Otherwise, write 'false'.
 * gives - This is what the item provides the player either on initial interaction or if `requires` is fulfilled.
+* audio - An optional per-click play of an audio sample; write 'false' if you don't want any audio.
 * levels_up_to - If `requires` is fulfilled for the item, the scene will change to the level set here. Otheriwse, write 'false'.
 
 
