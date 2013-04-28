@@ -141,19 +141,20 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
             audio.get(0).play();
           }
 
-          if (inventory && !user.hasInventory(inventory)) {
-            item.setInventory(inventory, user);
-            img = body.find('#inventory-notify img');
+          if (inventory && !user.hasInventory(inventory) && !user.hasCollection(inventory)) {
             img.attr('src', 'media/images/inventory/' + inventory + '.png');
             img.parent().removeClass('hidden');
           }
 
+          item.setInventory(inventory, user);
           item.setLevel(item.current.levels_up_to, user);
-        }
 
-        if (item.current.levels_up_to > 1 && user.level !== currLevel) {
-          currLevel = user.level;
-          setLevel();
+          user.giveRequirement(currLevel, item);
+
+          if (item.current.levels_up_to > 1 && user.level !== currLevel) {
+            currLevel = user.level;
+            setLevel();
+          }
         }
 
         break;
