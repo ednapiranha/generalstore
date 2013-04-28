@@ -135,7 +135,7 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
         inventory = item.current.gives;
         var itemAudio = item.current.audio;
 
-        if (!requirement || (requirement && user.hasInventory(requirement))) {
+        if (!requirement || (requirement && (user.hasInventory(requirement) || user.hasCollection(requirement)))) {
           if (itemAudio) {
             audio.attr('src', 'media/audio/items/' + itemAudio);
             audio.get(0).play();
