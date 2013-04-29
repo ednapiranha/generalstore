@@ -1,8 +1,7 @@
-::selection {
-    background-color: transparent;
-}
-
 body {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     background-color: #eee;
     color: #344347;
     font-family: Arial, sans-serif;
