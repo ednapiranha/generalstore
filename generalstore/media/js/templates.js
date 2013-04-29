@@ -154,7 +154,7 @@ output += "px;\">\n    ";
 }
 }
 }frame = frame.pop();
-output += "\n    <div id=\"message\"></div>\n    <div id=\"inventory-screen\" class=\"hidden\">\n      <h2>inventory</h2>\n      <a href=\"javascript:;\" data-action=\"inventory-hide\" class=\"close\">close</a>\n      <ul id=\"inventory-items\">\n        ";
+output += "\n    <div id=\"message\" data-action=\"message\"></div>\n    <div id=\"inventory-screen\" class=\"hidden\">\n      <h2>inventory</h2>\n      <a href=\"javascript:;\" data-action=\"inventory-hide\" class=\"close\">close</a>\n      <ul id=\"inventory-items\">\n        ";
 var includeTemplate = env.getTemplate("inventory.html");
 output += includeTemplate.render(context.getVariables(), frame.push());
 output += "\n      </ul>\n    </div>\n    <div id=\"inventory-notify\" class=\"hidden\" data-action=\"inventory-notify\">\n      <p data-action=\"inventory-notify\">New inventory!</p>\n      <img src=\"\" data-action=\"inventory-notify\">\n    </div>\n    <audio id=\"audio-noreplay\"></audio>\n  </div>\n</div>\n";
