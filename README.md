@@ -131,6 +131,13 @@ Contains the properties for each item. All properties are mandatory.
 Once you've completed your txt files, run [http://localhost:3000/generate](http://localhost:3000/generate) in your browser to regenerate the configuration.
 
 
+## Editing custom.css
+
+If you end up adding custom CSS rules in generalstore/media/css/custom.css, make sure to run the following or else the changes won't show up:
+
+> node_modules/grunt-cli/bin/grunt
+
+
 ## Packaging it up to play!
 
 Ready to deploy as a finished standalone package? Then do:
