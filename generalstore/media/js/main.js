@@ -93,7 +93,7 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
         break;
 
       case 'message':
-        self.addClass('hidden');
+        self.removeClass('on');
         break;
 
       case 'character':
