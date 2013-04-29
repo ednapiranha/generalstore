@@ -92,6 +92,10 @@ define(['jquery', 'local_settings', 'base/user', 'base/character', 'base/item', 
         window.location.reload(false);
         break;
 
+      case 'message':
+        self.addClass('hidden');
+        break;
+
       case 'character':
         var message = null;
         character.active(self[0].id);

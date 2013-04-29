@@ -21,7 +21,7 @@
            class="character" id="{{ k }}"
            style="left: {{ data.characters[k].left }}px; top: {{ data.characters[k].top }}px;">
     {% endfor %}
-    <div id="message"></div>
+    <div id="message" data-action="message"></div>
     <div id="inventory-screen" class="hidden">
       <h2>inventory</h2>
       <a href="javascript:;" data-action="inventory-hide" class="close">close</a>
