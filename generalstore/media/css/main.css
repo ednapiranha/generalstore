@@ -86,12 +86,9 @@ audio {
 }
 
 .character, .item {
+    cursor: pointer;
     position: absolute;
     z-index: 2;
-}
-
-.active {
-    cursor: pointer;
 }
 
 #message {
